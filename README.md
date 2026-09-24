@@ -118,13 +118,13 @@ Set-Location .\AI_HUB_STAGE2_HYBRID_MODIFIED
 & ..\.venv-local\Scripts\python.exe .\main.py
 ```
 
-The runner creates numbered experiment directories under `logs/`, `reports/`, and `experiment_configurations/`. Outputs include JSON records, diagnostics, `complete_results.xlsx`, and `video_results.csv`. Historical outputs are included for reference; they do not establish performance on your videos.
+The runner creates numbered experiment directories under `logs/`, `reports/`, and `experiment_configurations/`. Outputs include JSON records, diagnostics, `complete_results.xlsx`, and `video_results.csv`. Old logs and reports are excluded from this repository; new batch runs generate them locally.
 
-`generate_report_only.py` is a legacy utility with a fixed input directory, `logs/v2_100`, and `v2_100_*` report filenames. It does not automatically select the latest experiment. The main batch runner already generates reports for new runs.
+`generate_report_only.py` is a legacy utility with a fixed input directory, `logs/v2_100`, and `v2_100_*` report filenames. Those old logs are not included, so this utility requires matching logs to be supplied. It does not automatically select the latest experiment. The main batch runner already generates reports for new runs.
 
 ## Folder structure
 
-Repeated historical outputs and model-cache internals are abbreviated.
+Model-cache internals and saved experiment configurations are abbreviated. Logs and reports are created when batch processing runs.
 
 ```text
 AI-HUB---ACCIDENT-DETECTION/
@@ -179,8 +179,8 @@ AI-HUB---ACCIDENT-DETECTION/
     │   ├── log_reader.py
     │   ├── metrics.py
     │   └── report_generator.py
-    ├── logs/
-    ├── reports/
+    ├── logs/                       # generated locally, not tracked
+    ├── reports/                    # generated locally, not tracked
     └── experiment_configurations/
 ```
 
@@ -233,7 +233,7 @@ Each entry gives a short explanation of its role. Backend paths below are relati
 | `postprocessing/log_reader.py` | Reads saved experiment logs. Collects results for reporting. |
 | `postprocessing/metrics.py` | Calculates metrics using known labels. Supports batch evaluation. |
 | `postprocessing/report_generator.py` | Produces Excel and CSV summaries. Formats results and evaluation metrics. |
-| `logs/`, `reports/`, `experiment_configurations/` | Store experiment records, reports, and settings. Individual files are run data rather than application source. |
+| `logs/`, `reports/`, `experiment_configurations/` | Store experiment records, reports, and settings. Old logs/reports are omitted; batch runs generate new local outputs. |
 
 ## Troubleshooting
 
@@ -252,7 +252,7 @@ Each entry gives a short explanation of its role. Backend paths below are relati
 
 This is a local demonstration and research project. Confidence is a model score, not a guarantee; evaluate performance on your own videos. The Flask entry point enables debug mode, and the introduction links to localhost port 5000. Production deployment needs a separate configuration.
 
-Application code, interface files, model files, and historical outputs are retained from the supplied ZIP. Publication checks compare these files and check Python syntax without starting the application, running inference, or sending SMS. Runtime behaviour has not been re-tested during repository preparation.
+Application code, interface files, and model files are retained from the supplied ZIP. Old logs and reports have been removed, and documentation screenshots have been updated. Publication checks compared original application files and checked Python syntax without starting the application, running inference, or sending SMS. Runtime behaviour has not been re-tested during repository preparation.
 
 ## Credits and licence
 
