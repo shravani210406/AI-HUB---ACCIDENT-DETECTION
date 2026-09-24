@@ -1,0 +1,11 @@
+{
+    "video_name": "nor55.mp4",
+    "ground_truth": "normal",
+    "prediction": "normal",
+    "first_accident_timestamp": null,
+    "frames_processed": 93,
+    "detection_count": 483,
+    "vehicle_detection_count": 311,
+    "suspicious_frame_count": 0,
+    "processing_time_seconds": 11.575794700002007
+}

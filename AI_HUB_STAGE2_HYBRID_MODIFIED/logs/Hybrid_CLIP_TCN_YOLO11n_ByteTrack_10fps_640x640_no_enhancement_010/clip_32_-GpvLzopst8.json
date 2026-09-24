@@ -1,0 +1,11 @@
+{
+    "video_name": "clip_32_-GpvLzopst8.mp4",
+    "ground_truth": "accident",
+    "prediction": "accident",
+    "first_accident_timestamp": 25.402228209716093,
+    "frames_processed": 305,
+    "detection_count": 1516,
+    "vehicle_detection_count": 1171,
+    "suspicious_frame_count": 53,
+    "processing_time_seconds": 33.664795500000764
+}

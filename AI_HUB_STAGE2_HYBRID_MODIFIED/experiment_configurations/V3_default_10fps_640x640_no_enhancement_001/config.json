@@ -1,0 +1,12 @@
+{
+    "model_name": "YOLO11x",
+    "detection_engine": "default",
+    "accident_algorithm": "V3",
+    "sample_fps": 10,
+    "resize_enabled": true,
+    "resize_width": 640,
+    "resize_height": 640,
+    "enhancement_enabled": false,
+    "brightness": 0,
+    "contrast": 1.0
+}

@@ -1,0 +1,10 @@
+{
+  "checkpoint_sha256": "cf73e7a1700d76ccbe3a499aafc01486fe14946bad3f305549822c6f7c11dbb5",
+  "feature_signature": "5293081f159c91e895a4fb5ca30f8f57a40c8f4d3d71d90df1d98023d4c9e424",
+  "precision": "FP32",
+  "window_shape": [
+    1,
+    15,
+    538
+  ]
+}

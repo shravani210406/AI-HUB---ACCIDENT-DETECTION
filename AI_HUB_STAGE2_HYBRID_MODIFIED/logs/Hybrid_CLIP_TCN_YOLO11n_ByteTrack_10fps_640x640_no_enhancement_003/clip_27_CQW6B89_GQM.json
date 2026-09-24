@@ -1,0 +1,11 @@
+{
+    "video_name": "clip_27_CQW6B89_GQM.mp4",
+    "ground_truth": "accident",
+    "prediction": "accident",
+    "first_accident_timestamp": 12.6,
+    "frames_processed": 332,
+    "detection_count": 1209,
+    "vehicle_detection_count": 1154,
+    "suspicious_frame_count": 116,
+    "processing_time_seconds": 49.679698399999324
+}

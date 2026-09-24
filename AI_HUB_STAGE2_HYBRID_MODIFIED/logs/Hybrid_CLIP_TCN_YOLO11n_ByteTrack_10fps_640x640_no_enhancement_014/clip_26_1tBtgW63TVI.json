@@ -1,0 +1,11 @@
+{
+    "video_name": "clip_26_1tBtgW63TVI.mp4",
+    "ground_truth": "accident",
+    "prediction": "accident",
+    "first_accident_timestamp": 3.3800007939373704,
+    "frames_processed": 345,
+    "detection_count": 1208,
+    "vehicle_detection_count": 1184,
+    "suspicious_frame_count": 277,
+    "processing_time_seconds": 33.64539879997028
+}

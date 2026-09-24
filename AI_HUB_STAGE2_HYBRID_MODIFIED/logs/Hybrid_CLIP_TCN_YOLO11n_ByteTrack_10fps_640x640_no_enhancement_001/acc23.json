@@ -1,0 +1,11 @@
+{
+    "video_name": "acc23.mp4",
+    "ground_truth": "accident",
+    "prediction": "accident",
+    "first_accident_timestamp": 6.0,
+    "frames_processed": 52,
+    "detection_count": 53,
+    "vehicle_detection_count": 47,
+    "suspicious_frame_count": 16,
+    "processing_time_seconds": 7.099085599999853
+}

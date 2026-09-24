@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Hub | Accident Detection</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="upload-page">
+<div class="road-alert" aria-hidden="true"><span></span><span></span></div>
+<main class="page">
+<header class="header">
+  <div>
+    <div class="label">AI HUB</div>
+    <h1>Accident or not?</h1>
+    <p>Upload a traffic video and run the detection pipeline.</p>
+    <div class="hero-note" aria-hidden="true">A moment. A signal. A response.</div>
+  </div>
+  <a class="home-link" href="{{ url_for('index') }}">Home</a>
+  <div class="mark">AD</div>
+</header>
+
+<section class="workspace">
+  <div class="step">
+    <b>01</b>
+    <div><strong>Choose video</strong><span>Select a traffic video from your computer.</span></div>
+  </div>
+
+  <label class="file-box">
+    <div class="plus">＋</div>
+    <strong>Select video file</strong>
+    <span>MP4 · AVI · MOV · MKV · WEBM</span>
+    <input id="videoInput" type="file" accept="video/*">
+  </label>
+
+  <div id="previewPanel" class="preview hidden">
+    <div class="panel-title"><strong>VIDEO PREVIEW</strong><span id="fileName"></span></div>
+    <video id="videoPlayer" controls preload="metadata"></video>
+  </div>
+
+  <form id="detectForm" action="{{ url_for('detect') }}" method="post" enctype="multipart/form-data">
+    <input id="formVideo" type="file" name="video" accept="video/*" hidden>
+
+    <div class="step second">
+      <b>02</b>
+      <div><strong>Run detection</strong><span>Send the video to the Python accident-detection pipeline.</span></div>
+    </div>
+
+    <button id="detectButton" disabled>RUN ACCIDENT DETECTION</button>
+  </form>
+
+  {% with messages=get_flashed_messages() %}
+  {% if messages %}<div class="notice">{{ messages[0] }}</div>{% endif %}
+  {% endwith %}
+</section>
+
+<div class="process-strip" aria-hidden="true">
+  <span><b>01</b><strong>Video input</strong><small>Upload traffic footage</small></span>
+  <span><b>02</b><strong>AI analysis</strong><small>Run detection</small></span>
+  <span><b>03</b><strong>Event time</strong><small>Review the result</small></span>
+  <span><b>04</b><strong>SMS status</strong><small>Check the alert</small></span>
+</div>
+
+<footer>Detection and SMS logic remain separate from the web interface.</footer>
+</main>
+
+<script>
+const input=document.getElementById("videoInput");
+const formInput=document.getElementById("formVideo");
+const player=document.getElementById("videoPlayer");
+const preview=document.getElementById("previewPanel");
+const nameBox=document.getElementById("fileName");
+const button=document.getElementById("detectButton");
+
+input.addEventListener("change",()=>{
+  const file=input.files[0];
+  if(!file) return;
+  const transfer=new DataTransfer();
+  transfer.items.add(file);
+  formInput.files=transfer.files;
+  nameBox.textContent=file.name;
+  player.src=URL.createObjectURL(file);
+  preview.classList.remove("hidden");
+  button.disabled=false;
+});
+</script>
+</body>
+</html>

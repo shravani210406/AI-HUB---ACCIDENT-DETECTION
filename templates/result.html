@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Hub | Result</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<style>
+  .actions-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 24px;
+    gap: 16px;
+  }
+  .btn-download {
+    background: #2563eb;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 18px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-download:hover {
+    background: #1d4ed8;
+  }
+
+  /* Optimized Print & PDF Report Layout */
+  @media print {
+    body {
+      background: #ffffff !important;
+      color: #111827 !important;
+    }
+    .page {
+      max-width: 100% !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      box-shadow: none !important;
+    }
+    .header {
+      border-bottom: 2px solid #111827 !important;
+      padding-bottom: 12px !important;
+      margin-bottom: 18px !important;
+    }
+    /* Hide interactive elements from printed report */
+    #resultVideo, .panel-title:has(+ #resultVideo), .small-btn, .actions-row, .back, .btn-download {
+      display: none !important;
+    }
+    /* Force browser to print alert backgrounds and border colors */
+    * {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    .workspace {
+      border: none !important;
+      padding: 0 !important;
+    }
+    .result, .info, .sms, .snapshot {
+      page-break-inside: avoid;
+      break-inside: avoid;
+      margin-bottom: 14px !important;
+    }
+    .snapshot img {
+      max-width: 480px !important;
+      max-height: 280px !important;
+      border: 1px solid #94a3b8 !important;
+      border-radius: 6px !important;
+      display: block !important;
+      margin-top: 8px !important;
+    }
+  }
+</style>
+</head>
+<body>
+<main class="page">
+<header class="header">
+  <div>
+    <div class="label">AI HUB · RESULT</div>
+    <h1>Detection Result</h1>
+    <p>{{ filename }}</p>
+  </div>
+  <div class="mark">AD</div>
+</header>
+
+<section class="workspace">
+  <div class="panel-title"><strong>ANALYSED VIDEO</strong></div>
+  <video id="resultVideo" class="result-video" controls preload="metadata">
+    <source src="{{ video_url }}">
+  </video>
+
+  {% if error %}
+    <div class="error-box"><h2>Detection could not be completed</h2><p>{{ error }}</p></div>
+
+  {% elif result and result.accident %}
+    <div class="result danger"><div class="symbol">!</div><div><small>RESULT</small><h2>ACCIDENT DETECTED</h2></div></div>
+
+    <div class="grid">
+      <div class="info">
+        <small>FIRST DETECTION</small>
+        <strong id="timestamp">{{ result.timestamp or "—" }}</strong>
+        {% if result.timestamp %}<button class="small-btn" onclick="jumpToTimestamp()">▶ VIEW EVENT</button>{% endif %}
+      </div>
+      <div class="info">
+        <small>CONFIDENCE</small>
+        <strong>{{ result.confidence ~ "%" if result.confidence is not none else "—" }}</strong>
+      </div>
+    </div>
+
+    {% if result.snapshot %}
+    <div class="snapshot">
+      <div class="panel-title"><strong>ACCIDENT SNAPSHOT</strong></div>
+      <img src="{{ url_for('snapshot', filename=result.snapshot) }}" alt="Accident snapshot">
+    </div>
+    {% endif %}
+
+    <div class="sms">
+      <b>SMS</b>
+      <div><strong>SMS STATUS</strong><p>{{ sms_status }}</p></div>
+    </div>
+
+  {% elif result %}
+    <div class="result safe"><div class="symbol">✓</div><div><small>RESULT</small><h2>NO ACCIDENT DETECTED</h2></div></div>
+    {% if result.confidence is not none %}
+    <div class="grid one"><div class="info"><small>CONFIDENCE</small><strong>{{ result.confidence }}%</strong></div></div>
+    {% endif %}
+  {% endif %}
+</section>
+
+<div class="actions-row">
+  <a class="back" href="{{ url_for('index') }}">← Analyse another video</a>
+  <button type="button" class="btn-download" onclick="window.print()">📄 Download Incident Report (PDF)</button>
+</div>
+</main>
+
+<script>
+function seconds(v){
+  const p=v.split(":").map(Number);
+  if(p.length===3)return p[0]*3600+p[1]*60+p[2];
+  if(p.length===2)return p[0]*60+p[1];
+  return Number(v);
+}
+function jumpToTimestamp(){
+  const v=document.getElementById("timestamp").innerText.trim();
+  const s=seconds(v);
+  const video=document.getElementById("resultVideo");
+  if(Number.isFinite(s)){video.currentTime=s;video.play();}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+# Runtime dependencies for the modified Stage 2 Hybrid project.
+numpy>=1.26,<3
+torch>=2.2,<3
+torchvision>=0.17,<1
+ultralytics==8.4.138
+openvino==2026.3.1
+av==18.1.0
+open_clip_torch==3.3.0
+opencv-python>=4.10,<5
+PyYAML>=6,<7
+Pillow>=10,<13
+psutil>=5.9,<8
+openpyxl>=3.1,<4
+lap>=0.5.12,<1

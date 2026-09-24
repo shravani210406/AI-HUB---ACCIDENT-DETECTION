@@ -1,0 +1,11 @@
+{
+    "video_name": "clip_05_DrTDtkeGv8Q.mp4",
+    "ground_truth": "accident",
+    "prediction": "accident",
+    "first_accident_timestamp": 6.58,
+    "frames_processed": 61,
+    "detection_count": 62,
+    "vehicle_detection_count": 61,
+    "suspicious_frame_count": 26,
+    "processing_time_seconds": 4.629631000003428
+}

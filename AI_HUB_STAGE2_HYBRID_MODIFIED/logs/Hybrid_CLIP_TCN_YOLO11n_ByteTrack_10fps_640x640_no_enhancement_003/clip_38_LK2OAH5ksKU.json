@@ -1,0 +1,11 @@
+{
+    "video_name": "clip_38_LK2OAH5ksKU.mp4",
+    "ground_truth": "accident",
+    "prediction": "accident",
+    "first_accident_timestamp": 22.0,
+    "frames_processed": 488,
+    "detection_count": 4854,
+    "vehicle_detection_count": 3636,
+    "suspicious_frame_count": 45,
+    "processing_time_seconds": 115.29423049999968
+}

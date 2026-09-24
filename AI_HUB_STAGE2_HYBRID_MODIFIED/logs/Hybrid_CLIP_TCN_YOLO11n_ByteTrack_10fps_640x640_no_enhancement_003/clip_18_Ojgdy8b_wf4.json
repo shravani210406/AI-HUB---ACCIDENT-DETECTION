@@ -1,0 +1,11 @@
+{
+    "video_name": "clip_18_Ojgdy8b_wf4.mp4",
+    "ground_truth": "accident",
+    "prediction": "accident",
+    "first_accident_timestamp": 3.003,
+    "frames_processed": 226,
+    "detection_count": 484,
+    "vehicle_detection_count": 480,
+    "suspicious_frame_count": 205,
+    "processing_time_seconds": 22.799167100001796
+}

@@ -1,0 +1,11 @@
+{
+    "video_name": "clip_43_3KSHg1inZS8.mp4",
+    "ground_truth": "accident",
+    "prediction": "accident",
+    "first_accident_timestamp": 3.003,
+    "frames_processed": 774,
+    "detection_count": 2046,
+    "vehicle_detection_count": 1980,
+    "suspicious_frame_count": 507,
+    "processing_time_seconds": 190.42194739999832
+}

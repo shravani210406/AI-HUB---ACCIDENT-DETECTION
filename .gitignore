@@ -1,0 +1,17 @@
+.env
+.env.*
+!.env.example
+.venv/
+.venv-local/
+venv/
+__pycache__/
+*.py[cod]
+.idea/
+.vscode/
+# Existing supplied samples/results are tracked; new runtime files stay local.
+uploads/*
+AI_HUB_STAGE2_HYBRID_MODIFIED/logs/
+AI_HUB_STAGE2_HYBRID_MODIFIED/reports/
+AI_HUB_STAGE2_HYBRID_MODIFIED/experiment_configurations/
+.DS_Store
+Thumbs.db

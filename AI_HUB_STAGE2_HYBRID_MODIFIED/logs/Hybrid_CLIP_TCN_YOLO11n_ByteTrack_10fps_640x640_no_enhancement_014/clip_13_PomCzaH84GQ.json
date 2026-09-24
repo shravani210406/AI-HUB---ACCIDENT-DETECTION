@@ -1,0 +1,11 @@
+{
+    "video_name": "clip_13_PomCzaH84GQ.mp4",
+    "ground_truth": "accident",
+    "prediction": "accident",
+    "first_accident_timestamp": 3.0,
+    "frames_processed": 111,
+    "detection_count": 322,
+    "vehicle_detection_count": 320,
+    "suspicious_frame_count": 93,
+    "processing_time_seconds": 10.413090899994131
+}

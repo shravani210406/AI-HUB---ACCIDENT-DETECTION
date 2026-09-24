@@ -1,0 +1,11 @@
+{
+    "video_name": "acc16.mp4",
+    "ground_truth": "accident",
+    "prediction": "accident",
+    "first_accident_timestamp": 8.4,
+    "frames_processed": 70,
+    "detection_count": 610,
+    "vehicle_detection_count": 433,
+    "suspicious_frame_count": 18,
+    "processing_time_seconds": 10.818022200000087
+}

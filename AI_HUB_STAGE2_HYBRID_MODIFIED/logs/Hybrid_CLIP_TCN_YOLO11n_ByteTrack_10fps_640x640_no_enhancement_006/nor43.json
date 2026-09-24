@@ -1,0 +1,11 @@
+{
+    "video_name": "nor43.mp4",
+    "ground_truth": "normal",
+    "prediction": "normal",
+    "first_accident_timestamp": null,
+    "frames_processed": 69,
+    "detection_count": 67,
+    "vehicle_detection_count": 18,
+    "suspicious_frame_count": 0,
+    "processing_time_seconds": 9.716299200001231
+}
