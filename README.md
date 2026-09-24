@@ -152,7 +152,6 @@ AI-HUB---ACCIDENT-DETECTION/
     ├── config.py
     ├── experiment_config.py
     ├── experiment_videos.txt
-    ├── normal_experiment_backup.txt.txt
     ├── generate_report_only.py
     ├── configs/default.yaml
     ├── hybrid/
@@ -212,7 +211,6 @@ Each entry gives a short explanation of its role. Backend paths below are relati
 | `config.py` | Defines project and experiment settings. Includes backend selection and CPU options. |
 | `experiment_config.py` | Collects experiment settings and creates run names. Supports saved configuration records. |
 | `experiment_videos.txt` | Lists batch video paths and labels. Fill it before starting a batch run. |
-| `normal_experiment_backup.txt.txt` | Preserves an older experiment list. It is not the active batch input. |
 | `generate_report_only.py` | Generates reports from fixed existing logs. Does not run detection. |
 | `configs/default.yaml` | Configures models, sampling, thresholds, and inference options. Loaded by the Hybrid backend. |
 | `hybrid/__init__.py` | Marks the Hybrid directory as a Python package. Enables imports from the adapter and runner. |
